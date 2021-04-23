@@ -12,13 +12,19 @@ def decimal_to_octal(i):
 
 
 def decimal_to_hexadecimal(i):
-    hexadecimal = 0
+    hexadecimal = ""
+    while i != 0:
+        if i % 16 < 10:
+            hexadecimal = chr(i % 16 + 48) + hexadecimal
+        else:
+            hexadecimal = chr(i % 16 + 55) + hexadecimal
+        i = int(i / 16)
     return hexadecimal
 
 
 def print_formatted(n):
     max_binary_number_length = len(decimal_to_binary(n))
-    for i in range(1, n):
+    for i in range(1, n+1):
         binary_number = decimal_to_binary(i)
         decimal_number = i
         octal_number = decimal_to_octal(i)
