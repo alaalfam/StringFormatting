@@ -4,7 +4,10 @@ def decimal_to_binary(i):
 
 
 def decimal_to_octal(i):
-    octal = 0
+    octal = ""
+    while i != 0:
+        octal = str(i % 8) + octal
+        i = int(i / 8)
     return octal
 
 
@@ -15,7 +18,7 @@ def decimal_to_hexadecimal(i):
 
 def print_formatted(n):
     max_binary_number_length = len(decimal_to_binary(n))
-    for i in range(n):
+    for i in range(1, n):
         binary_number = decimal_to_binary(i)
         decimal_number = i
         octal_number = decimal_to_octal(i)
